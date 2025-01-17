@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates>
+   <div t-name="PreviewDialog"
+     class="modal fade"
+     tabindex="-1"
+     data-backdrop="static"
+     role="dialog"
+     t-att-id="'modal_' + (Math.random().toString(36).substr(2, 9))"
+     style="display: block !important;">
+    <div class="modal-dialog modal-lg modal-full">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <header class="modal-header preview-header">
+                <h4 class="col-11 text-center modal-title preview-title">
+                    <t t-out="title" />
+                </h4>
+                <!-- Maximize Button -->
+                <button type="button" class="btn preview-dialog-btn preview-maximize" title="Maximize" aria-label="Maximize">
+                    <i class="fa fa-expand"></i>
+                </button>
+                <!-- Minimize Button -->
+                <button type="button" class="btn preview-dialog-btn preview-minimize" title="Minimize" aria-label="Minimize" style="display: none;">
+                    <i class="fa fa-compress"></i>
+                </button>
+                <!-- Close Button -->
+                <button type="button" class="btn-close preview-dialog-btn preview-close" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times"></i>
+                </button>
+            </header>
+            <!-- Modal Body -->
+            <main class="modal-body preview-body">
+                <!-- Content will be dynamically appended here -->
+            </main>
+            <!-- Modal Footer -->
+            <footer class="modal-footer preview-footer">
+                <button type="button" class="btn btn-primary mr-auto" data-bs-dismiss="modal">Close</button>
+            </footer>
+        </div>
+    </div>
+</div>
+
+</templates>

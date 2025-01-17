@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates id="template" xml:space="preserve">
+
+    <t t-name="pdf_print_preview.user_menu">
+        <t t-extend="UserMenu.Actions">
+            <t t-jquery=".dropdown-divider" t-operation="after">
+                <a role="menuitem" href="#" data-menu="preview" class="dropdown-item">Report preview</a>
+            </t>
+        </t>
+    </t>
+
+</templates>
