@@ -12,7 +12,6 @@ function ReportPreviewItem(env) {
         id: "report_preview",
         description: _t("Report preview"),
         callback: async function () {
-        debugger
             const actionDescription = await rpc("/web/action/load", {
                 action_id: "pdf_print_preview.action_short_preview_print"
             });

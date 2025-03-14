@@ -24,10 +24,11 @@ class PdfPreview {
 }
 
 class PreviewDialog {
-    constructor(parent, pdfPreview, url, title) {
+    constructor(parent, pdfPreview, url, title,name_list) {
         this.parent = parent;
         this.title = title || "Preview";
         this.url = url;
+        this.name_list = name_list;
 
         // Render the modal element
         this.modalElement = this._renderModal();
@@ -173,10 +174,9 @@ class PreviewDialog {
 export { PdfPreview, PreviewDialog };
 
 // Create a static method to initialize and open the dialog
-PreviewDialog.createPreviewDialog = async function (parent, url, title) {
-    debugger
+PreviewDialog.createPreviewDialog = async function (parent, url, title,name_list) {
     const pdfPreview = new PdfPreview();
-    const dialog = new PreviewDialog(parent, pdfPreview, url, title);
+    const dialog = new PreviewDialog(parent, pdfPreview, url, title,name_list);
     await dialog.open();
     return dialog;
 };
