@@ -14,13 +14,17 @@ import { rpc } from "@web/core/network/rpc";
  * @param {ReportAction} action
  * @returns {string}
  */
-function _getReportUrl(action,name_list) {
+function _getReportUrl(action, name_list) {
     let url = `/report/pdf/${action.report_name}`;
     const actionContext = action.context || {};
     let filename = action.name;
+    filename = filename || action.display_name || "report";
     
     // 合并name_list，用/隔开
-    const combined_names = name_list.length > 1 ? '多个' : name_list[0].name;
+    const primaryName = name_list.length === 1 && name_list[0]?.name
+        ? name_list[0].name
+        : filename;
+    const combined_names = name_list.length > 1 ? "多个" : primaryName;
     
     // 获取当前日期并格式化为yyyymmdd
     const currentDate = new Date();
@@ -65,7 +69,7 @@ async function PdfPrintPreview(action, options, env) {
                     context: actionContext,
                 }
             });
-            console.log('选中的记录名称信息:', records);
+            console.log("选中的记录名称信息:", name_list);
         } catch (error) {
             console.error('获取选中记录名称失败:', error);
         }
